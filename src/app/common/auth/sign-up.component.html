@@ -1,0 +1,82 @@
+<h2>Sign Up</h2>
+
+<form>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <label>First Name</label>
+        <font color="red">*</font>
+        <input 
+        type="text" 
+        class="form-control"
+        [(ngModel)]="firstName"
+        name="firstName"
+        />
+
+        <br>
+
+        <label>Last Name</label>
+        <font color="red">*</font>
+        <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="lastName" 
+        name="lastName"
+        />
+
+        <br>
+
+        <label>Email</label>
+        <font color="red">*</font>
+        <input 
+        type="text" 
+        class="form-control"
+        [(ngModel)]="email"
+        name="email"
+        />
+
+        <br>
+        
+        <label>Telephone Number</label>
+        <font color="red">*</font>
+        <input 
+        type="text" 
+        class="form-control"
+        [(ngModel)]="phoneNumber"
+        name="phoneNumber"
+        />
+
+        <br>
+
+        <label>Password</label>
+        <font color="red">*</font>
+        <input 
+        type="password"
+        class="form-control"
+        [(ngModel)]="password" 
+        name="password" 
+        />
+
+        <label>Confirm Password</label>
+        <font color="red">*</font>
+        <input 
+        type="confirmPassword"
+        class="form-control"
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword" 
+        />
+
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" (click)="signUp()">Submit</button>
+
+    <br>
+    <br>
+    <font color="red">* </font>
+    <label>Required Field</label>  
+  </form>
+  
