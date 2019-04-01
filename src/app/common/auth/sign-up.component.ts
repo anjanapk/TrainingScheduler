@@ -25,6 +25,7 @@ export class SignUpComponent  {
                 confirmPassword : this.confirmPassword,
 
             };
+            
 
             if (newUser.firstName && newUser.lastName && newUser.email && newUser.phoneNumber
                 && newUser.password 
