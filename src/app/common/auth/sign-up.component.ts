@@ -20,13 +20,13 @@ export class SignUpComponent  {
                 firstName : this.firstName,
                 lastName : this.lastName,
                 email : this.email,
-                phoneNumber : this.confirmPassword, 
+                phoneNumber : this.phoneNumber, 
                 password : this.password,
                 confirmPassword : this.confirmPassword,
 
             };
 
-            if (newUser.firstName && newUser.lastName && newUser.email && newUser.password
+            if (newUser.firstName && newUser.lastName && newUser.email && newUser.phoneNumber
                 && newUser.password 
                 && newUser.confirmPassword 
                 && newUser.password == newUser.confirmPassword) {
