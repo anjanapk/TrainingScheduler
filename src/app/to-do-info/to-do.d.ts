@@ -6,7 +6,6 @@ export interface IToDo {
     phone: string,
     password: string,
     isCompleted: boolean,
-   
     userId: number,
     
 

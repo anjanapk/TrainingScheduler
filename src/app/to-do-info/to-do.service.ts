@@ -12,8 +12,7 @@ export class TodoService {
 
     getById(id: number): Observable<IToDo> {
         return this.http
-        
-            .get<IToDo>(`http://localhost:3000/todos/${id}`);
+                  .get<IToDo>(`http://localhost:3000/todos/${id}`);
     }
 
     saveTodos(todo: IToDo): Observable<IToDo> {

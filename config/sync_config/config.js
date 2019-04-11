@@ -1,9 +1,0 @@
-CONFIG = {};
-CONFIG.app = process.env.app;
-CONFIG.db_host = process.env.db_host;
-CONFIG.db_dialect = 'mysql';
-CONFIG.db_name = 'Training_Scheduler_AKumar';
-CONFIG.db_user = 'AKumar';
-CONFIG.db_password = 'LA636382*rd';
-CONFIG.jwt_encryption = process.env.jwt_encryption;
-CONFIG.jwt_expiration = process.env.jwt_expiration;
