@@ -76,4 +76,13 @@ app.put(
   userController.update,
 );
 app.post('/login', userController.login);
+
+app.post('/TrainingScheduler', passport.authenticate('jwt', { session: false }),userController.create)
+app.put('/TrainingScheduler', passport.authenticate('jwt', { session: false }), userController.update)
+
+/*
+app.get('/TrainingScheduler', passport.authenticate('jwt', {session: false }), TrainingScheduler.getAll)
+app.get('/TrainingScheduler', passport.authenticate('jwt', { session: false }), TrainingScheduler.get)
+*/
+
 module.exports = app;

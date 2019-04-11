@@ -1,6 +1,6 @@
-<h2>Sign Up</h2>
+<h2> Edit Profile</h2>
 
-<form>
+<form [formGroup]="toDoForm">
 
     <div class="row">
       <div class="col-md-6">
@@ -12,8 +12,8 @@
         <input 
         type="text" 
         class="form-control"
-        [(ngModel)]="firstName"
-        name="firstName"
+        formControlName="firstName"
+        
         />
 
         <br>
@@ -23,8 +23,8 @@
         <input 
         type="text" 
         class="form-control" 
-        [(ngModel)]="lastName" 
-        name="lastName"
+        formControlName="lastName" 
+        
         />
 
         <br>
@@ -34,8 +34,8 @@
         <input 
         type="text" 
         class="form-control"
-        [(ngModel)]="email"
-        name="email"
+        formControlName="email"
+        
         />
 
         <br>
@@ -45,8 +45,8 @@
         <input 
         type="text" 
         class="form-control"
-        [(ngModel)]="phoneNumber"
-        name="phoneNumber"
+        formControlName="phoneNumber"
+        
         />
 
         <br>
@@ -56,8 +56,8 @@
         <input 
         type="password"
         class="form-control"
-        [(ngModel)]="password" 
-        name="password" 
+        formControlName="password" 
+        
         />
 
         <label>Confirm Password</label>
@@ -65,8 +65,8 @@
         <input 
         type="confirmPassword"
         class="form-control"
-        [(ngModel)]="confirmPassword" 
-        name="confirmPassword" 
+        formControlName="confirmPassword" 
+        
         />
 
       </div>
@@ -74,8 +74,11 @@
       </div>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" (click)="signUp()">Submit</button>
-
+    
+    <div class="row">
+      <div class="col-md-6"><button class="btn btn-primary" [disabled]="!toDoForm.valid" (click)="save()"
+          type="submit">Save</button></div>
+    </div>
     <br>
     <br>
     <font color="red">* </font>

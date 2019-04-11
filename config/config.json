@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "root",
-    "password": "miles",
-    "database": "TrainingScheduler",
-    "host": "127.0.0.1",
+    "username": "AKumar",
+    "password": "LA636382*rd",
+    "database": "Training_Scheduler_AKumar",
+    "host": "172.31.252.135",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "AKumar",
+    "password": "LA636382*rd",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"

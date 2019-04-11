@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import 'rxjs/add/operator/do';
+import { EmailValidator } from '@angular/forms';
+import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 
 export interface ILoginResponse {
     success: boolean;
@@ -35,4 +37,25 @@ export class AuthService {
     logout(): void {
         this.token.next(null);
     }
+
+    signup (         
+        
+        firstName: string, lastName: string, 
+        email: string, phoneNumber: string, password: string, 
+        confirmPassword: string) 
+        : Observable<any>
+         {
+          const data = {
+            first: firstName,
+            last: lastName,
+            email: email,
+            phoneNumber: phoneNumber,
+            password: password,
+            confirmPassword: confirmPassword,
+            userRoleId: 2,
+          };
+        return this.http.post<any>('http://localhost:3000/users', data );
+ 
+        }
+   
 }
