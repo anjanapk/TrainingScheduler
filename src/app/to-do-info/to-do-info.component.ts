@@ -20,7 +20,8 @@ export class ToDoInfoComponent implements OnInit {
   password: new FormControl('', Validators.required),
   confirmPassword: new FormControl('', Validators.required),
   });
-
+ 
+  
   toDo: any;
 
   ngOnInit() {this.getToDo(1);

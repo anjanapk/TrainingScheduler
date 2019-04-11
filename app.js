@@ -10,6 +10,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const Users = require('./models').Users;
 const app = express();
+ 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -37,7 +37,8 @@ export class SignUpComponent  {
                 newUser.password &&
                 newUser.confirmPassword &&
                 newUser.password == newUser.confirmPassword)
-
+ 
+                
                  {
 
                 this.authService.signup(newUser.firstName, newUser.lastName,
