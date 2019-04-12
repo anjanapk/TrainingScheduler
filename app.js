@@ -11,7 +11,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const Users = require('./models').Users;
 const app = express();
  
-
+ 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
