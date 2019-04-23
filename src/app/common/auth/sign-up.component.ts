@@ -48,6 +48,7 @@ export class SignUpComponent  {
                   newUser.password, newUser.confirmPassword)
                  .subscribe((response) => {this.router.navigateByUrl('/login');                    
                 console.log(newUser);
+                
                 });
             }    
            else  {

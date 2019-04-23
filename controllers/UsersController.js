@@ -1,7 +1,7 @@
  // const Users = require('../models').users;
 
- const Users = require('/Webapps/TrainingScheduler/models/users');
-
+const Users = require('/Webapps/TrainingScheduler/models/users');
+  
 const validator = require('validator');
 
 const getAll = async function(req, res) {

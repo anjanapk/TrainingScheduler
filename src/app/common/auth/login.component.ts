@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
     templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
-
+  
     email = 'user@gmail.com';
     password = 'password';
 

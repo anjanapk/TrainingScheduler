@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-to-do-info',
   templateUrl: './to-do-info.component.html'
-  
+     
 })
 export class ToDoInfoComponent implements OnInit {
 
