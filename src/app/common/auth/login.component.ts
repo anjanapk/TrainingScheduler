@@ -7,8 +7,8 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    email = '';
-    password = '';
+    email = 'user@gmail.com';
+    password = 'password';
 
     constructor(
         private router: Router,
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
                     }
                 },
                 (error) => {
+                    console.log(this.email, this.password);
                     console.log('username/password incorrect');
                 }
             );

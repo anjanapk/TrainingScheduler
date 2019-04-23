@@ -11,6 +11,7 @@ export class SignUpComponent  {
     lastName = '';
     email = '';
     phoneNumber = '';
+    aboutme = '';
     password = '';
     confirmPassword = '';
 
@@ -24,6 +25,7 @@ export class SignUpComponent  {
                 lastName : this.lastName,
                 email : this.email,
                 phoneNumber : this.phoneNumber, 
+                aboutme : this.aboutme,
                 password : this.password,
                 confirmPassword : this.confirmPassword,
 
@@ -42,7 +44,7 @@ export class SignUpComponent  {
                  {
 
                 this.authService.signup(newUser.firstName, newUser.lastName,
-                  newUser.email, newUser.phoneNumber,
+                  newUser.email, newUser.phoneNumber, newUser.aboutme,
                   newUser.password, newUser.confirmPassword)
                  .subscribe((response) => {this.router.navigateByUrl('/login');                    
                 console.log(newUser);

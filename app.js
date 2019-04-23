@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const Users = require('./models').Users;
+const Users = require('./models').users;
 const app = express();
  
  
@@ -57,6 +57,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+
 models.sequelize
   .authenticate()
   .then(() => {
@@ -70,20 +71,41 @@ if (CONFIG.app === 'dev') {
   models.sequelize.sync();
 }
 
+
+app.get(
+  '/users',
+  passport.authenticate('jwt', { session: false }),
+  userController.getAll,
+);
+
+
+
 app.post('/users', userController.create);
+
+
 app.put(
   '/users',
   passport.authenticate('jwt', { session: false }),
   userController.update,
 );
-app.post('/login', userController.login);
-
-app.post('/TrainingScheduler', passport.authenticate('jwt', { session: false }),userController.create)
-app.put('/TrainingScheduler', passport.authenticate('jwt', { session: false }), userController.update)
 
 /*
-app.get('/TrainingScheduler', passport.authenticate('jwt', {session: false }), TrainingScheduler.getAll)
-app.get('/TrainingScheduler', passport.authenticate('jwt', { session: false }), TrainingScheduler.get)
+app.put('/users', userController.update);
+*/
+
+app.post('/login', userController.login);
+
+/*
+
+app.post('/users', passport.authenticate('jwt', { session: false }),userController.create)
+
+
+app.put('/users', passport.authenticate('jwt', { session: false }), userController.update)
+
+
+app.get('/users', passport.authenticate('jwt', {session: false }), userController.getAll)
+
+app.get('/users', passport.authenticate('jwt', { session: false }), userController.get)
 */
 
 module.exports = app;

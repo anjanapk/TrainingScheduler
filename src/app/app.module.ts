@@ -15,6 +15,7 @@ import { LoginComponent } from './common/auth/login.component';
 import { TokenInterceptor } from './common/auth/token.interceptor';
 import { SignUpComponent } from './common/auth/sign-up.component';
 import { ToDoInfoComponent } from "./to-do-info/to-do-info.component";
+import { NoAdminGuard } from './common/auth/no-admin.guard';
  
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ToDoInfoComponent } from "./to-do-info/to-do-info.component";
     HomeComponent,
     LoginComponent,
     SignUpComponent,
-    ToDoInfoComponent
+    ToDoInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +38,7 @@ import { ToDoInfoComponent } from "./to-do-info/to-do-info.component";
   providers: [
     AuthService,
     AuthGuard,
+    NoAdminGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

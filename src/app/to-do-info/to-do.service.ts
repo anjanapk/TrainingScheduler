@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IToDo } from './to-do.d'; 
+
 import { Observable } from 'rxjs';
+import { IUser } from '../common/auth/auth.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,13 +11,13 @@ export class TodoService {
 
     constructor(private http: HttpClient) { }
 
-    getById(id: number): Observable<IToDo> {
+    getById(id: number): Observable<IUser> {
         return this.http
-                  .get<IToDo>(`http://localhost:3000/todos/${id}`);
+                  .get<IUser>(`http://localhost:3000/users/${id}`);
     }
 
-    saveTodos(todo: IToDo): Observable<IToDo> {
-        return this.http.post<IToDo>('http://localhost:3000/todos', todo);
+    saveTodos(todo: IUser): Observable<IUser> {
+        return this.http.post<IUser>('http://localhost:3000/users', todo);
     }
  
     

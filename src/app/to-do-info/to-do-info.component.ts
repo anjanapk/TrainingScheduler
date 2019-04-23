@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from './to-do.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-to-do-info',
@@ -9,7 +10,9 @@ import { TodoService } from './to-do.service';
 })
 export class ToDoInfoComponent implements OnInit {
 
-  constructor( private toDoService: TodoService) { }
+  constructor( 
+    private toDoService: TodoService,
+    private activeRoute: ActivatedRoute) { }
 
   toDoForm = new FormGroup({
   
@@ -24,10 +27,16 @@ export class ToDoInfoComponent implements OnInit {
   
   toDo: any;
 
-  ngOnInit() {this.getToDo(1);
+  ngOnInit() {
+    const id = this.activeRoute.snapshot.paramMap.get('todoId');
+    if (id !== 'add') {
+      this.getToDo(+id);
+}
+    // this.getToDo(1);
   }
 
   getToDo(id: number): void {
+    id = 12;
     this.toDoService.getById(id)
       .subscribe(
         (todo) => {
@@ -36,7 +45,7 @@ export class ToDoInfoComponent implements OnInit {
           this.toDoForm.patchValue(todo);
         },
         (error) => {
-          console.log('failed getting toDo by id');
+          console.log('failed getting user by id');
         },
       );
   }
@@ -45,10 +54,10 @@ export class ToDoInfoComponent implements OnInit {
 
     this.toDoService.saveTodos(this.toDoForm.value).subscribe(
       (response) => {
-        console.log('Saved Todo');
+        console.log('Saved User');
       },
       (error) => {
-        console.log('failed saving toDo');
+        console.log('failed saving user');
       },
     );
 }

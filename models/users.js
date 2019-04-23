@@ -28,15 +28,37 @@ module.exports = (sequelize, DataTypes) => {
       },
       aboutMe: DataTypes.STRING,
       password: DataTypes.STRING,
+      isTrainer: {
+        type: DataTypes.BOOLEAN,
+      
+      },
     },
     {
       classMethods: {
         associate: function(models) {
+
           models.Users.belongsTo(models.UserRoles, {
             foreignKey: 'userRoleId',
             sourceKey: 'id',
+            onDelete: 'CASCADE',
           });
-        },
+
+          models.Users.belongsTo(models.Events, {
+            foreignKey: 'id',
+            sourceKey: 'TraineeId',
+            onDelete: 'CASCADE',
+          });
+
+          
+            models.Users.belongsTo(models.Sessions, {
+              foreignKey: 'id',
+              sourceKey: 'TrainerId',
+              onDelete: 'CASCADE',
+            });
+          
+          },
+
+        
       },
     },
   );
