@@ -4,11 +4,13 @@ require('./config/sync_config/config');
 const models = require('./models');
 require('./global_functions');
 const userController = require('./controllers/UsersController');
+const todoCotroller = require('./controllers/SessionsController');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const Users = require('./models').users;
+const Users = require('./models').Users;
+const Sessions = require('./models').Sessions;
 const app = express();
    
  
@@ -108,4 +110,31 @@ app.get('/users', passport.authenticate('jwt', {session: false }), userControlle
 app.get('/users', passport.authenticate('jwt', { session: false }), userController.get)
 */
 
+app.post(
+  '/todos',
+  passport.authenticate('jwt', { session: false }),
+  todoCotroller.create,
+);
+app.put(
+  '/todos',
+  passport.authenticate('jwt', { session: false }),
+  todoCotroller.update,
+);
+app.get(
+  '/todos',
+  passport.authenticate('jwt', { session: false }),
+  todoCotroller.getAll,
+);
+app.get(
+  '/todos/admin',
+  passport.authenticate('jwt', { session: false }),
+  todoCotroller.getAllAdmin,
+);
+app.get(
+  '/todos/:todoId',
+  passport.authenticate('jwt', { session: false }),
+  todoCotroller.get,
+);
+
+app.put('/todos/markDone/:todoId', passport.authenticate('jwt', { session: false }), todoCotroller.markDone);
 module.exports = app;

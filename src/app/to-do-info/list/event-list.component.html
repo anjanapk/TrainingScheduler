@@ -1,0 +1,36 @@
+<h2>Sessions List</h2>
+<div class="row" [formGroup]="searchForm">
+  <div class="col-md-6">
+    <label>Search:</label>
+    <input class="form-control" formControlName="query" placeholder="Enter text to search..." />
+  </div>
+  <div class="col-md-2">
+    <label>Phone:</label>
+    <input class="form-control" formControlName="phone" placeholder="Enter phone to search..." />
+  </div>
+  <div *ngIf="isAdmin" class="col-md-2">
+    <label>Users:</label>
+    <select class="form-control" formControlName="user">
+      <option *ngFor="let u of users" [ngValue]="u">{{ u.first + ' ' + u.last }}</option>
+    </select>
+  </div>
+</div>
+<br />
+
+<div class="list-group">
+  <a *ngFor="let todo of todos" class="list-group-item list-group-item-action float-right" (click)="goToToDo(todo)"
+    [class.todo-done]="todo.isCompleted">
+    {{ todo.name }}
+    <span *ngIf="isAdmin" class="float-right">{{
+      todo.User.first + ' ' + todo.User.last
+    }}</span>
+    <span class="float-right">{{
+      todo.createdAt | date:'short'
+    }}</span>
+    <button [style.visibility]="todo.isCompleted ? 'hidden' : null" class="btn btn-outline-secondary btn-sm float-right"
+      (click)="markDone(todo, $event)" type="button">
+      mark Done
+    </button>
+  </a>
+
+</div>

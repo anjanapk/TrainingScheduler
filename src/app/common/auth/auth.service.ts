@@ -24,8 +24,8 @@ export interface ILoginResponse {
 }
 
 export enum UserRoles {
-    Admin = 3,
-    User = 4,
+    Admin = 4,
+    User = 3,
   }
 
 @Injectable()

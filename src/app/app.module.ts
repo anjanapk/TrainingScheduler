@@ -15,6 +15,7 @@ import { LoginComponent } from './common/auth/login.component';
 import { TokenInterceptor } from './common/auth/token.interceptor';
 import { SignUpComponent } from './common/auth/sign-up.component';
 import { ToDoInfoComponent } from "./to-do-info/to-do-info.component";
+import { ToDoListComponent } from "./to-do-info/list/event-list.component";
 import { NoAdminGuard } from './common/auth/no-admin.guard';
  
 
@@ -25,6 +26,7 @@ import { NoAdminGuard } from './common/auth/no-admin.guard';
     LoginComponent,
     SignUpComponent,
     ToDoInfoComponent,
+    ToDoListComponent,
   ],
   imports: [
     BrowserModule,

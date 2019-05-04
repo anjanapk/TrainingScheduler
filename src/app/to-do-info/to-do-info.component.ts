@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from './to-do.service';
 import { ActivatedRoute } from '@angular/router';
+                 
 
 @Component({
   selector: 'app-to-do-info',
@@ -28,18 +29,23 @@ export class ToDoInfoComponent implements OnInit {
   toDo: any;
 
   ngOnInit() {
-    const id = this.activeRoute.snapshot.paramMap.get('todoId');
+  
+    
+   const id = this.activeRoute.snapshot.paramMap.get('todoId');
+    
     if (id !== 'add') {
       this.getToDo(+id);
 }
-    // this.getToDo(1);
+    
   }
 
   getToDo(id: number): void {
-    id = 12;
+    id=14;
+  
     this.toDoService.getById(id)
       .subscribe(
         (todo) => {
+          console.log("Entered getById");
           console.log(todo);
           this.toDo = todo;
           this.toDoForm.patchValue(todo);

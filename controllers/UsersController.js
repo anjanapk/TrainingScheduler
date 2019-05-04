@@ -1,6 +1,4 @@
- // const Users = require('../models').users;
-
-const Users = require('/Webapps/TrainingScheduler/models/users');
+const Users = require('../models').Users;
   
 const validator = require('validator');
 
