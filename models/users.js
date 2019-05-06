@@ -48,14 +48,8 @@ module.exports = (sequelize, DataTypes) => {
             sourceKey: 'TraineeId',
             onDelete: 'CASCADE',
           });
-
-          
-            models.Users.belongsTo(models.Sessions, {
-              foreignKey: 'id',
-              sourceKey: 'TrainerId',
-              onDelete: 'CASCADE',
-            });
-          
+              
+     
           },
 
         

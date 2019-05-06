@@ -3,15 +3,15 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
 
-    return queryInterface.addConstraint('Users', ['id'], {
+    return queryInterface.addConstraint('Events', ['TraineeId'], {
       type: 'FOREIGN KEY',
-      name: 'fkey_Users_Events',
+      name: 'fkey_Events_Users',
        references: {
-       table: 'Events',
-       field: 'TraineeId',
+       table: 'Users',
+       field: 'id',
      },
-     onUpdate: 'no action',
-     onDelete: 'no action',
+     onUpdate: 'CASCADE',
+     onDelete: 'CASCADE',
  
      
    });
@@ -19,6 +19,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeConstraint('Users', 'fkey_Users_Events')
+    return queryInterface.removeConstraint('Events', 'fkey_Events_Users')
   }
 };

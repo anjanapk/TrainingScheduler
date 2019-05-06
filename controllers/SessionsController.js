@@ -10,20 +10,26 @@ const getAll = async function (req, res) {
       $like: '%' + req.query.name + '%',
     };
   }
+  /*
   if (req.query.isCompleted) {
     whereStatement.isCompleted = {
       $eq: req.query.isCompleted === 'true',
     };
+*/
+    if (req.query.StartTime) {
+      whereStatement.StartTime = {
+        $eq: req.query.StartTime >= new Date(),
+      };
   }
   whereStatement.userId = {
     $eq: req.user.id,
   };
-  /*
+  
   [err, todos] = await to(
   
-  Users.findAll({ where: whereStatement, order: [['orderId', 'ASC']] }),
+  Sessions.findAll({ where: whereStatement, order: [['StartTime', 'ASC']] }),
   );
-  */
+  
   if (err) console.log(err.message);
   return res.json(todos);
 };
@@ -43,10 +49,17 @@ const getAllAdmin = async function (req, res) {
       $like: '%' + req.query.name + '%',
     };
   }
+  /*
   if (req.query.isCompleted) {
     whereStatement.isCompleted = {
       $eq: req.query.isCompleted === 'true',
     };
+*/
+
+    if (req.query.StartTime) {
+      whereStatement.StartTime = {
+        $eq: req.query.StartTime >= new Date(),
+      };
   }
 
   if (req.query.phone) {
@@ -62,10 +75,12 @@ const getAllAdmin = async function (req, res) {
   }
   [err, todos] = await to(
  
+      
       Sessions.findAll({
-        include: [{ model: Sessions, where: userWhereStatement }],
+       include: [{ model: Users, where: userWhereStatement }],
       where: whereStatement,
-  //    order: [['orderId', 'ASC']],
+    order: [['StartTime', 'ASC']],
+
     }),
   );
   if (err) console.log(err.message);
@@ -92,12 +107,15 @@ module.exports.get = get;
 const create = async function (req, res) {
   res.setHeader('ContentType', 'application/json');
   const body = req.body;
-/*
-  [err, orderId] = await to(Events.max('orderId'));
+  
+  /*
+
+  [err, StartTime] = await to(Sessions.max('StartTime'));
 
   
   if (err) console.log(err.message);
-*/
+
+  */
   body.userId = req.user.id;
   /*
   body.orderId = orderId || orderId === 0 ? orderId + 1 : 0;
@@ -151,7 +169,9 @@ const markDone = async function (req, res) {
 
     Sessions.update( 
     
-      { isCompleted: true, dateCompleted: new Date() },
+     { isCompleted: true, dateCompleted: new Date() },
+
+        
       {
         where: {
           id: todoId,

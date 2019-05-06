@@ -22,7 +22,7 @@ opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = CONFIG.jwt_encryption;
 
 passport.use(
-  new JwtStrategy(opts, async function(jwt_payload, done) {
+  new JwtStrategy(opts, async function (jwt_payload, done) {
     let err, user;
     [err, user] = await to(Users.findByPk(jwt_payload.user_id));
 

@@ -48,6 +48,13 @@ module.exports = (sequelize, DataTypes) => {
   },
    
   );
-  
+  Sessions.associate = function (models) {
+
+  models.Sessions.belongsTo(models.Users, {
+    foreignKey: 'TrainerId',
+    sourceKey: 'id',
+    onDelete: 'CASCADE',
+  });
+}
   return Sessions;
 };
