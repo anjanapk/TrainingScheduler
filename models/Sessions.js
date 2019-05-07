@@ -19,8 +19,9 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {msg: "Location is required"},
 
       },
+    },
       StartTime: {
-        type: DataTypes.datetime,
+        type: DataTypes.DATE,
         allowNull: false,
         validate: {
            notNull: { msg: 'StartTime is required' } 
@@ -45,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       },
         
     },
-  },
+  
    
   );
   Sessions.associate = function (models) {

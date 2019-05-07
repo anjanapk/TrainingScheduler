@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {msg: "Location is required"},
 
       },
+    },
       StartTime: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -36,7 +37,8 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       TraineeId: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false,
         
       },
       EventId: {
@@ -45,21 +47,16 @@ module.exports = (sequelize, DataTypes) => {
       },
         
     },
-  },
- 
   
-  {
-    classMethods: {
-      
-      associate: function (models) {
+  );
+        
+    Events.associate = function (models) {
         models.Events.belongsTo(models.Sessions, {
           foreignKey: 'EventId',
           sourceKey: 'EventId',
           onDelete: 'CASCADE',
         });
-      },
-    },
-  },
-  );
+      }
+      
   return Events;
 };
