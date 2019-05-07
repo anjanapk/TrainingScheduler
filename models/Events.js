@@ -47,16 +47,21 @@ module.exports = (sequelize, DataTypes) => {
       },
         
     },
-  
   );
+   
+  Events.associate = function (models) {        
+  
         
-    Events.associate = function (models) {
-        models.Events.belongsTo(models.Sessions, {
-          foreignKey: 'EventId',
-          sourceKey: 'EventId',
+   
+        models.Events.belongsTo(models.Users, {
+          foreignKey: 'TraineeId',
+          sourceKey: 'id',
           onDelete: 'CASCADE',
-        });
-      }
+            });
+          }
+        
+      
+
       
   return Events;
 };
