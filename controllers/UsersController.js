@@ -24,6 +24,7 @@ const create = async function (req, res) {
   const body = req.body;
 
   if (!body.email) {
+  
     
     return ReE(res, 'Please enter an email to register', 422);
   } else if (!body.password) {

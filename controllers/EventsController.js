@@ -95,9 +95,10 @@ const get = async function (req, res) {
   let eventId = parseInt(req.params.eventId);
   res.setHeader('Content-Type', 'application/json');
 
-
+  
   [err, event] = await to(Events.findByPk(eventId));
 
+  
   if (!event) {
     res.statusCode = 404;
     return res.json({ success: false, error: err });

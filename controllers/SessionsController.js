@@ -108,6 +108,7 @@ const create = async function (req, res) {
   res.setHeader('ContentType', 'application/json');
   const body = req.body;
   
+  
   /*
 
   [err, StartTime] = await to(Sessions.max('StartTime'));
