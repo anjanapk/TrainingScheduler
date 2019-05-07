@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
    
   Events.associate = function (models) {        
   
-        
+          
    
         models.Events.belongsTo(models.Users, {
           foreignKey: 'TraineeId',
@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         
       
-
+  
       
   return Events;
 };

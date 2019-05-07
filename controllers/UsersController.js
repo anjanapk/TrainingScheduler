@@ -32,7 +32,7 @@ const create = async function (req, res) {
     let err, user
 
     [err, user] = await to(createUser(body));
-    
+      
     
     if (err) return ReE(res, err, 422);
 

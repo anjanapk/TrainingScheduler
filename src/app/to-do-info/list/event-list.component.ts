@@ -68,7 +68,7 @@ export class ToDoListComponent implements OnInit {
         this.getToDos();
       });
   }
-
+  
   getToDos() {
     // have 2 different service endpoints
     // OR

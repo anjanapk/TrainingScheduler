@@ -111,7 +111,7 @@ const create = async function (req, res) {
   /*
 
   [err, StartTime] = await to(Sessions.max('StartTime'));
-
+  
   
   if (err) console.log(err.message);
 

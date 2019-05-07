@@ -42,16 +42,9 @@ module.exports = (sequelize, DataTypes) => {
             sourceKey: 'id',
             onDelete: 'CASCADE',
           });
-
-          models.Users.belongsTo(models.Events, {
-            foreignKey: 'id',
-            sourceKey: 'TraineeId',
-            onDelete: 'CASCADE',
-          });
-              
-     
+    
           },
-
+  
         
       },
     },
