@@ -45,7 +45,7 @@ export class ToDoInfoComponent implements OnInit {
     this.toDoService.getById(id)
       .subscribe(
         (todo) => {
-          
+            
           console.log(todo);
           this.toDo = todo;
           this.toDoForm.patchValue(todo);
