@@ -1,5 +1,6 @@
 const Sessions = require('../models').Sessions;
 const Users = require('../models').Users;
+const Events = require('../models').Events;
 
 const getAll = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -44,6 +45,8 @@ const getAllAdmin = async function (req, res) {
   }
   let whereStatement = {};
   let userWhereStatement = {};
+  let eventWhereStatement = {};
+
   if (req.query.name) {
     whereStatement.name = {
       $like: '%' + req.query.name + '%',
@@ -72,17 +75,25 @@ const getAllAdmin = async function (req, res) {
     userWhereStatement.id = {
       $eq: req.query.userId,
     };
+    eventWhereStatement.TraineeId = {
+      $eq: req.query.userId,
+    };
   }
   [err, todos] = await to(
  
       
       Sessions.findAll({
-       include: [{ model: Users, where: userWhereStatement }],
+       include: [{ model: Users, where: userWhereStatement, required: true}],
+       include: [{
+         model: Events, where: eventWhereStatement, required: true
+        
+        }],
       where: whereStatement,
     order: [['StartTime', 'ASC']],
 
     }),
   );
+  
   if (err) console.log(err.message);
   return res.json(todos);
 };
@@ -91,10 +102,14 @@ module.exports.getAllAdmin = getAllAdmin;
 const get = async function (req, res) {
   let err, todo;
   let todoId = parseInt(req.params.todoId);
+
+  
   res.setHeader('Content-Type', 'application/json');
 
 
-  [err, todo] = await to(Sessions.findByPk(todoId));
+  [err, todo] = await to(
+    
+    Sessions.findByPk(todoId));
 
   if (!todo) {
     res.statusCode = 404;
@@ -108,7 +123,7 @@ const create = async function (req, res) {
   res.setHeader('ContentType', 'application/json');
   const body = req.body;
   
-  
+
   /*
 
   [err, StartTime] = await to(Sessions.max('StartTime'));

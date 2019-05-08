@@ -57,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'TraineeId',
           sourceKey: 'id',
           onDelete: 'CASCADE',
-            });
+            })
+           
           }
         
       

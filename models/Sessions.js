@@ -56,6 +56,15 @@ module.exports = (sequelize, DataTypes) => {
        sourceKey: 'id',
         onDelete: 'CASCADE',
       });
+
+      models.Sessions.belongsTo(models.Events, {
+        foreignKey: 'id',
+        sourceKey: 'TraineeId',
+        onDelete: 'CASCADE',
+
+
+      }
+       ) ;
     }
   
  
