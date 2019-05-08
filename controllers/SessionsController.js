@@ -1,7 +1,7 @@
 const Sessions = require('../models').Sessions;
 const Users = require('../models').Users;
 const Events = require('../models').Events;
-
+ 
 const getAll = async function (req, res) {
   res.setHeader('Content-Type', 'application/json');
   let err, todos;

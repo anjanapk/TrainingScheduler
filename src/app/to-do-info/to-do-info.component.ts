@@ -32,7 +32,7 @@ export class ToDoInfoComponent implements OnInit {
   
     
    const id = this.activeRoute.snapshot.paramMap.get('todoId');
-      console.log('Entered ngOnInit' + id);
+       
     if (id !== 'add') {
       this.getToDo(+id);
 }
@@ -45,7 +45,7 @@ export class ToDoInfoComponent implements OnInit {
     this.toDoService.getById(id)
       .subscribe(
         (todo) => {
-          console.log("Entered getById");
+          
           console.log(todo);
           this.toDo = todo;
           this.toDoForm.patchValue(todo);
