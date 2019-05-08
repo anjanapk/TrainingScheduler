@@ -16,7 +16,10 @@ const getAll = async function (req, res) {
     whereStatement.isCompleted = {
       $eq: req.query.isCompleted === 'true',
     };
+  }
 */
+   
+
     if (req.query.StartTime) {
       whereStatement.StartTime = {
         $eq: req.query.StartTime >= new Date(),

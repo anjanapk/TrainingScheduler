@@ -25,7 +25,7 @@
      {{ todo.Name }}
     </span>
     <span class="float-right">{{
-      todo.createdAt | date:'short'
+      todo.StartTime | date:'short'
     }}</span>
     <button [style.visibility]="todo.isCompleted ? 'hidden' : null" class="btn btn-outline-secondary btn-sm float-right"
       (click)="markDone(todo, $event)" type="button">
