@@ -7,6 +7,6 @@ export interface IToDo {
     password: string,
     isCompleted: boolean,
     userId: number,
-    
+    StartTime: Date;
   
 }
