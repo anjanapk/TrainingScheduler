@@ -61,7 +61,7 @@ const getAllAdmin = async function (req, res) {
       $eq: req.query.isCompleted === 'true',
     };
 */
-
+  
     if (req.query.StartTime) {
       whereStatement.StartTime = {
         $eq: req.query.StartTime >= new Date(),
