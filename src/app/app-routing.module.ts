@@ -9,16 +9,24 @@ import { AuthGuard } from './common/auth/auth.guard';
 import { NoAdminGuard } from './common/auth/no-admin.guard';
 
 import { ToDoListComponent } from './to-do-info/list/event-list.component';
+import { GridComponent } from './grid/grid.component';
+import { FormCellComponent } from './grid/form-cell/form-cell.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'todo', component: ToDoInfoComponent },
+  
 
   { path:  'session',
   canActivate: [AuthGuard],
   component: ToDoListComponent,  
+ },
+
+ { path:  'session-grid',
+  canActivate: [AuthGuard],
+  component: GridComponent,  
  },
 
   { path: '**', component: HomeComponent },

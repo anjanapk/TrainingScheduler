@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+
 /* Material Modules*/
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +25,7 @@ import {AgGridModule} from "ag-grid-angular";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './common/auth/auth.service';
@@ -43,6 +45,7 @@ import {BranchService} from "./branch.service";
 @NgModule({
   declarations: [
     AppComponent,
+    
     HomeComponent,
     LoginComponent,
     SignUpComponent,
