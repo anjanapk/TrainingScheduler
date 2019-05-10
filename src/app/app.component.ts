@@ -3,6 +3,9 @@ import { AuthService } from './common/auth/auth.service';
 
 @Component({
   selector: 'app-root',
+  template: `
+  <app-grid></app-grid>
+`,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })

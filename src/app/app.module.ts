@@ -2,7 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+/* Material Modules*/
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatSnackBarModule
+} from "@angular/material";
+
+/* Flex */
+import {FlexLayoutModule} from "@angular/flex-layout";
+/* ag-Grid Module*/
+import {AgGridModule} from "ag-grid-angular";
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +34,11 @@ import { SignUpComponent } from './common/auth/sign-up.component';
 import { ToDoInfoComponent } from "./to-do-info/to-do-info.component";
 import { ToDoListComponent } from "./to-do-info/list/event-list.component";
 import { NoAdminGuard } from './common/auth/no-admin.guard';
- 
+
+
+import {GridComponent} from './grid/grid.component';
+import {FormCellComponent} from './grid/form-cell/form-cell.component';
+import {BranchService} from "./branch.service";
 
 @NgModule({
   declarations: [
@@ -27,6 +48,9 @@ import { NoAdminGuard } from './common/auth/no-admin.guard';
     SignUpComponent,
     ToDoInfoComponent,
     ToDoListComponent,
+
+    GridComponent,
+    FormCellComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +60,21 @@ import { NoAdminGuard } from './common/auth/no-admin.guard';
     NgbModule,
     AppRoutingModule,
     ReactiveFormsModule,
+
+    MatSnackBarModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FlexLayoutModule,
+AgGridModule.withComponents([FormCellComponent]),
   ],
   providers: [
     AuthService,
     AuthGuard,
     NoAdminGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    BranchService
   ],
   bootstrap: [AppComponent]
 })
