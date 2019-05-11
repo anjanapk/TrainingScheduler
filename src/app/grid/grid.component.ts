@@ -11,7 +11,7 @@ import {BranchService} from "../branch.service";
     selector: 'app-grid',
     template: `
         <div class="container"
-             fxLayout="column" fxLayoutAlign="start center">
+             fxLayout="column" fxLayoutAlign="start">
             <mat-form-field class="dealership-field">
                 <mat-select placeholder="Branch" (selectionChange)="updateForm()" [(value)]="selectedBranch">
                     <mat-option *ngFor="let branch of branchNames" [value]="branch">
@@ -89,10 +89,10 @@ constructor(public snackBar: MatSnackBar,
     private branchService: BranchService) {
 
 this.columnDefs = [
-{headerName: 'Order #', field: "orderNumber", width: 110, suppressSizeToFit: true},
-{headerName: 'Make', field: "make", cellRenderer: 'formCell'},
-{headerName: 'Model', field: "model", cellRenderer: 'formCell'},
-{headerName: 'Price', field: "price", cellRenderer: 'formCell'}
+{headerName: 'Event Name', field: "orderNumber", width: 200, suppressSizeToFit: true},
+{headerName: 'Description', field: "make", cellRenderer: 'formCell'},
+{headerName: 'Start Time', field: "model", cellRenderer: 'formCell'},
+{headerName: 'Trainee Name', field: "price", cellRenderer: 'formCell'}
 ];
 
 this.branchNames = this.branchService.branches;
