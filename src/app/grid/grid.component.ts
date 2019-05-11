@@ -13,20 +13,20 @@ import {BranchService} from "../branch.service";
         <div class="container"
              fxLayout="column" fxLayoutAlign="start">
             <mat-form-field class="dealership-field">
-                <mat-select placeholder="Branch" (selectionChange)="updateForm()" [(value)]="selectedBranch">
+                <mat-select placeholder="Users" (selectionChange)="updateForm()" [(value)]="selectedBranch">
                     <mat-option *ngFor="let branch of branchNames" [value]="branch">
                         {{ branch }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <form class="dealership-form"
-                  fxLayout="column" fxLayoutAlign="start center"
+                  fxLayout="column" fxLayoutAlign="start"
                   (ngSubmit)="onSubmit()" [formGroup]="gridForm">
                 <mat-form-field class="dealership-field">
-                    <input matInput formControlName="salesperson" placeholder="Lead Salesperson">
+                    <input matInput formControlName="salesperson" placeholder="Event Name">
                 </mat-form-field>
                 <mat-form-field class="dealership-field">
-                    <input matInput formControlName="telephone" placeholder="Branch Telephone" type="tel">
+                    <input matInput formControlName="telephone" placeholder="Session Trainer" type="tel">
                 </mat-form-field>
                 <mat-form-field class="dealership-field">
                     <textarea matInput
